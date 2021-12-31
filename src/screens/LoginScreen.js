@@ -42,7 +42,11 @@ export default LoginScreen = ({navigation}) => {
         <Text style={styles.login}>Login</Text>
         <Text style={styles.emailPassword}>Email Address</Text>
         <TextInput
-          style={isValidEmail ? styles.emailInput : styles.emailInputInvalid}
+          style={
+            isValidEmail === false
+              ? styles.emailInputInvalid
+              : styles.emailInput
+          }
           onChangeText={setEmail}></TextInput>
         {isValidEmail === false ? (
           <Text style={styles.helperText}>
@@ -52,9 +56,9 @@ export default LoginScreen = ({navigation}) => {
         <Text style={styles.emailPassword}>Password</Text>
         <View
           style={
-            isValidPassword
-              ? styles.wrapPasswordInput
-              : styles.wrapPasswordInputInvalid
+            isValidPassword === false
+              ? styles.wrapPasswordInputInvalid
+              : styles.wrapPasswordInput
           }>
           <TextInput
             onChangeText={setPassword}
@@ -95,7 +99,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   emailPassword: {
-    marginTop: 5,
+    marginVertical: 15,
     fontSize: 15,
   },
   emailInput: {

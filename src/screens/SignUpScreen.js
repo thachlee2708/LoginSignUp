@@ -102,7 +102,7 @@ export default LoginScreen = ({navigation}) => {
             style={styles.inputPass}
             secureTextEntry={isPassHide}
             placeholder="Password*"></TextInput>
-          <TouchableOpacity onPress={onPressHidePass}>
+          <TouchableOpacity style={styles.icon} onPress={onPressHidePass}>
             <Icon name={icon} size={20} color="#05A4C5" />
           </TouchableOpacity>
         </View>
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   wrapPassword: {
     borderWidth: 0.8,
     borderRadius: 8,
-    padding: 15,
+    padding: 6,
     margin: 10,
     flexDirection: 'row',
   },
@@ -189,5 +189,8 @@ const styles = StyleSheet.create({
   loginText: {
     color: '#05A4C5',
     fontSize: 15,
+  },
+  icon: {
+    alignSelf: 'center',
   },
 });

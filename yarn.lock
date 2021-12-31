@@ -5687,7 +5687,7 @@
     "lodash" "^4.17.21"
     "prop-types" "^15.7.2"
 
-"react-native-reanimated@^2.3.1":
+"react-native-reanimated@^2.2.4":
   "integrity" "sha512-nzjVqwkB8eeyPKT2KoiA9EEz17ZMFSGMoOTC17Z9b5nE2Z4ZHjHM5EKhY0TlwzXFUuJAE9PhOfxF0wIO/maZSA=="
   "resolved" "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-2.3.1.tgz"
   "version" "2.3.1"

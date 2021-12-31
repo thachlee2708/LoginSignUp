@@ -1,5 +1,6 @@
 package com.loginsignup;
-
+  import com.facebook.react.bridge.JSIModulePackage; // <- add this
+  import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add this
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -35,6 +36,11 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
+        // add more this "Override" below <----------------
+      @Override 
+      protected JSIModulePackage getJSIModulePackage() {
+        return new ReanimatedJSIModulePackage(); // <- add
+      }
       };
 
   @Override
