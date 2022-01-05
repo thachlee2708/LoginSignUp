@@ -11,6 +11,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import CustomInput from '../components/InputComponent';
 import Icon from 'react-native-vector-icons/FontAwesome';
 Icon.loadFont();
 
@@ -60,55 +61,37 @@ export default LoginScreen = ({navigation}) => {
     <SafeAreaView style={styles.container}>
       <View>
         <Text style={styles.signup}>Creat Account</Text>
-        <TextInput
-          onEndEditing={() => checkValidName(name)}
-          style={isValidName === false ? styles.inputInvalid : styles.input}
+        <CustomInput
+          isValid={isValidName}
+          onendEditing={() => checkValidName(name)}
+          onchangeText={setName}
           placeholder="Name*"
-          onChangeText={setName}></TextInput>
-        {isValidName === false ? (
-          <Text style={styles.helperText}>Name required</Text>
-        ) : null}
-        <TextInput
-          onEndEditing={() => checkValidEmail(email)}
-          style={isValidEmail === false ? styles.inputInvalid : styles.input}
+          helperTextMessage="Name required"></CustomInput>
+        <CustomInput
+          isValid={isValidEmail}
+          onendEditing={() => checkValidEmail(email)}
+          onchangeText={setEmail}
           placeholder="Email*"
-          onChangeText={setEmail}></TextInput>
-        {isValidEmail === false ? (
-          <Text style={styles.helperText}>
-            {email.length === 0 ? 'Email required' : 'Email invalid'}
-          </Text>
-        ) : null}
-        <TextInput
-          onEndEditing={() => checkValidPhone(phone)}
-          style={isValidPhone === false ? styles.inputInvalid : styles.input}
+          helperTextMessage={
+            email.length === 0 ? 'Email required' : 'Email invalid'
+          }></CustomInput>
+        <CustomInput
+          isValid={isValidPhone}
+          onendEditing={() => checkValidPhone(phone)}
+          onchangeText={setPhone}
           placeholder="Phone*"
-          onChangeText={setPhone}></TextInput>
-        {isValidPhone === false ? (
-          <Text style={styles.helperText}>
-            {phone.toString().length === 0
+          helperTextMessage={
+            phone.toString().length === 0
               ? 'Phone required'
-              : 'Phone invalid, 10 digits required'}
-          </Text>
-        ) : null}
-        <View
-          style={
-            isValidPassword === false
-              ? styles.wrapPasswordInvalid
-              : styles.wrapPassword
-          }>
-          <TextInput
-            onEndEditing={() => checkValidPassword(password)}
-            onChangeText={setPassword}
-            style={styles.inputPass}
-            secureTextEntry={isPassHide}
-            placeholder="Password*"></TextInput>
-          <TouchableOpacity style={styles.icon} onPress={onPressHidePass}>
-            <Icon name={icon} size={20} color="#05A4C5" />
-          </TouchableOpacity>
-        </View>
-        {isValidPassword === false ? (
-          <Text style={styles.helperText}>Password required</Text>
-        ) : null}
+              : 'Phone invalid, 10 digits required'
+          }></CustomInput>
+        <CustomInput
+          isValid={isValidPassword}
+          onendEditing={() => checkValidPassword(password)}
+          onchangeText={setPassword}
+          placeholder="Password*"
+          helperTextMessage="Password required"
+          secureTextEntry></CustomInput>
         <TouchableOpacity style={styles.buttonSignUp} onPress={checkSignUp}>
           <Text style={styles.buttonSignUpColorText}>SIGN UP</Text>
         </TouchableOpacity>
