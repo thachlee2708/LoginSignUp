@@ -1,14 +1,9 @@
 import React, {useState} from 'react';
-import type {Node} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
-  useColorScheme,
   View,
 } from 'react-native';
 import CustomInput from '../components/InputComponent';
